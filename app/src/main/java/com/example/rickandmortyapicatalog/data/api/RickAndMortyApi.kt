@@ -1,4 +1,4 @@
-package com.example.rickandmortyapicatalog.aplication
+package com.example.rickandmortyapicatalog.data.api
 
 import com.example.rickandmortyapicatalog.data.model.CharacterInfo
 import com.example.rickandmortyapicatalog.data.model.CharacterList
@@ -13,7 +13,7 @@ interface RickAndMortyApi {
         @Query("offset") offset: Int = 200
     ): CharacterList
 
-    @GET("pokemon/{id}/")
+    @GET("character/{id}/")
     suspend fun getSingleCharacter(
         @Path("id") name: String
     ): CharacterInfo
