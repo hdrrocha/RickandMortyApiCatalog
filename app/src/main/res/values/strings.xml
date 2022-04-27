@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Rick and Morty Api Catalog</string>
+    <string name="app_error">There was some problem loading the data. Try again later.</string>
+
 </resources>

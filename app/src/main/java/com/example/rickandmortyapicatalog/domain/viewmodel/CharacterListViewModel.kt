@@ -28,8 +28,8 @@ class CharacterListViewModel(
             if (mutableData.value != null) return@launch
             useCase.fetchCharacter().cachedIn(viewModelScope).collect {
                 mutableData.value = it
-            }
 
+            }
         } catch (e: Exception) {
             error.value = true
             loading.value = false

@@ -3,7 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/drawable/bg_loading_end.xml" value="0.28888888888888886" />
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/drawable/bg_loading_end_oval.xml" value="0.28888888888888886" />
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/drawable/bg_loading_start.xml" value="0.28888888888888886" />
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/drawable/bg_loading_start_oval.xml" value="0.28888888888888886" />
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/drawable/ic_launcher_background.xml" value="0.28888888888888886" />
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/drawable/rounded_top_border.xml" value="0.28888888888888886" />
         <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/layout/activity_main.xml" value="0.29393115942028986" />
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/layout/character_row_item.xml" value="0.536" />
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/layout/fragment_character_list.xml" value="0.24652455977757182" />
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/layout/row_loading_error.xml" value="0.25677083333333334" />
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/layout/view_loading_character_item.xml" value="0.29393115942028986" />
+        <entry key="..\:/develop/RickandMortyApiCatalog/app/src/main/res/layout/view_loading_character_list.xml" value="0.6751269035532995" />
       </map>
     </option>
   </component>
@@ -12,5 +23,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

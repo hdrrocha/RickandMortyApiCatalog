@@ -1,5 +1,6 @@
 package com.example.rickandmortyapicatalog.injection
 
+import androidx.navigation.NavController
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingSource
@@ -14,6 +15,8 @@ import com.example.rickandmortyapicatalog.domain.repository.CharacterListReposit
 import com.example.rickandmortyapicatalog.domain.usercase.CharacterListUseCaseImp
 import com.example.rickandmortyapicatalog.domain.usercase.abs.CharacterListUseCase
 import com.example.rickandmortyapicatalog.domain.viewmodel.CharacterListViewModel
+import com.example.rickandmortyapicatalog.router.CharacterListRouterImp
+import com.example.rickandmortyapicatalog.router.abs.CharacterListRouter
 import com.itkacher.okhttpprofiler.OkHttpProfilerInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
@@ -24,7 +27,6 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
-
 
 object Modules {
     private val network = module {
@@ -103,7 +105,9 @@ object Modules {
 
 
     private val router = module {
-        //TODO
+        factory<CharacterListRouter> { (navController: NavController) ->
+            CharacterListRouterImp(navController = navController)
+        }
     }
 
     var all = listOf(

@@ -23,7 +23,7 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField "String", "BASE_URL", "\"https://rickandmortyapi.com/api\""
+            buildConfigField "String", "BASE_URL", "\"https://rickandmortyapi.com/api/\""
         }
         release {
             minifyEnabled false
