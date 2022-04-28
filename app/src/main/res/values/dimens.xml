@@ -16,6 +16,7 @@
     <dimen name="spacing_little">12dp</dimen>
     <dimen name="spacing_tiny">8dp</dimen>
     <dimen name="spacing_micro">4dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
 
     <dimen name="text_size_large">32sp</dimen>
     <dimen name="text_size_semi">24sp</dimen>
@@ -36,6 +37,9 @@
     <dimen name="card_width">120dp</dimen>
     <dimen name="card_corner_radius">12dp</dimen>
     <dimen name="top_margin">24dp</dimen>
+    <dimen name="height_image_character">350dp</dimen>
+    <dimen name="custom_image_width">150dp</dimen>
+    <dimen name="custom_image_height">100dp</dimen>
 
 
 </resources>

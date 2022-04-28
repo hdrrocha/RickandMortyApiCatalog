@@ -8,13 +8,20 @@ import com.example.rickandmortyapicatalog.BuildConfig
 import com.example.rickandmortyapicatalog.data.api.RickAndMortyApi
 import com.example.rickandmortyapicatalog.data.model.CharacterInfo
 import com.example.rickandmortyapicatalog.data.repository.CharacterListRepositoryImp
+import com.example.rickandmortyapicatalog.data.repository.SingleCharacterRepositoryImp
 import com.example.rickandmortyapicatalog.data.source.CharacterListPagingSource
 import com.example.rickandmortyapicatalog.domain.mapper.CharacterListMapperImp
+import com.example.rickandmortyapicatalog.domain.mapper.SingleCharacterMapperImp
 import com.example.rickandmortyapicatalog.domain.mapper.abs.CharacterListMapper
+import com.example.rickandmortyapicatalog.domain.mapper.abs.SingleCharacterMapper
 import com.example.rickandmortyapicatalog.domain.repository.CharacterListRepository
+import com.example.rickandmortyapicatalog.domain.repository.SingleCharacterRepository
 import com.example.rickandmortyapicatalog.domain.usercase.CharacterListUseCaseImp
+import com.example.rickandmortyapicatalog.domain.usercase.SingleCharacterUseCaseImp
 import com.example.rickandmortyapicatalog.domain.usercase.abs.CharacterListUseCase
+import com.example.rickandmortyapicatalog.domain.usercase.abs.SingleCharactertUseCase
 import com.example.rickandmortyapicatalog.domain.viewmodel.CharacterListViewModel
+import com.example.rickandmortyapicatalog.domain.viewmodel.SingleCharacterViewModel
 import com.example.rickandmortyapicatalog.router.CharacterListRouterImp
 import com.example.rickandmortyapicatalog.router.abs.CharacterListRouter
 import com.itkacher.okhttpprofiler.OkHttpProfilerInterceptor
@@ -69,11 +76,19 @@ object Modules {
                 pager = get()
             )
         }
+        single<SingleCharacterRepository> {
+            SingleCharacterRepositoryImp(
+                rickAndMortyApi = get()
+            )
+        }
     }
 
     private val mapper = module {
         single<CharacterListMapper> {
             CharacterListMapperImp()
+        }
+        single<SingleCharacterMapper> {
+            SingleCharacterMapperImp()
         }
     }
 
@@ -84,11 +99,22 @@ object Modules {
                 characterListRepository = get()
             )
         }
+        single<SingleCharactertUseCase> {
+            SingleCharacterUseCaseImp(
+                mapper = get(),
+                singleCharacterRepository = get()
+            )
+        }
     }
 
     private val viewModel = module {
         viewModel {
             CharacterListViewModel(
+                useCase = get()
+            )
+        }
+        viewModel {
+            SingleCharacterViewModel(
                 useCase = get()
             )
         }

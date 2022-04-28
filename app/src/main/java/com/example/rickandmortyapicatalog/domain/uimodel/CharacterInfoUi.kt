@@ -5,7 +5,7 @@ data class CharacterInfoUi(
     var created: String?,
     var episode: List<String>?,
     var gender: String?,
-    var id: Int?,
+    var id: String?,
     var image: String?,
     var location: LocationUi?,
     var name: String?,

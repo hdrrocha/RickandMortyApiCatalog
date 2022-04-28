@@ -23,9 +23,9 @@
 
     <fragment
         android:id="@+id/fragment_character_details"
-        android:name="com.example.rickandmortyapicatalog.ui.fragments.CharacterListFragment"
+        android:name="com.example.rickandmortyapicatalog.ui.fragments.CharacterDetailFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_character_list">
+        tools:layout="@layout/fragment_character_detail">
 
         <argument
             android:name="id_character"

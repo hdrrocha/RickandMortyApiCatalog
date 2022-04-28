@@ -2,32 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
-
         <variable
             name="viewModel"
             type="com.example.rickandmortyapicatalog.domain.viewmodel.CharacterListViewModel" />
     </data>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
         tools:context=".ui.activity.MainActivity">
-
-        <include
-            android:id="@+id/loadList"
-            layout="@layout/view_loading_character_list"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:show="@{viewModel.loading}"
-            android:visibility="gone"
-            tools:layout_editor_absoluteY="-29dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvcharacterList"
@@ -41,7 +26,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/character_row_item" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

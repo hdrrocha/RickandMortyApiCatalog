@@ -15,6 +15,6 @@ interface RickAndMortyApi {
 
     @GET("character/{id}/")
     suspend fun getSingleCharacter(
-        @Path("id") name: String
+        @Path("id") id: String
     ): CharacterInfo
 }

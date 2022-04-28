@@ -81,14 +81,13 @@ class CharacterViewAdapter : PagingDataAdapter<CharacterInfoUi, CharacterViewAda
                 .into(itemView.characterItemImage)
 
             onItemClickListener?.let { listener ->
-//                itemView.setOnClickListener { listener.onItemClick(item.name) }
-                //T
+                itemView.setOnClickListener { listener.onItemClick(item.id) }
             }
         }
     }
 
     interface OnItemClickListener {
-        fun onItemClick(id: String)
+        fun onItemClick(id: String?)
     }
 
     object CharacterInfoUiItemComparator : DiffUtil.ItemCallback<CharacterInfoUi>() {

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.rickandmortyapicatalog.domain.viewmodel.SingleCharacterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryLightColor"
+        tools:context=".ui.activity.MainActivity">
+
+        <ImageView
+            android:id="@+id/characterIDetailImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_image_character"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/rounded_top_border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.46"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/characterIDetailImage">
+
+            <TextView
+                android:id="@+id/characterTitle"
+                android:layout_width="@dimen/size_none"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@{viewModel.name}" />
+
+            <TextView
+                android:id="@+id/characterCreated"
+                android:layout_width="@dimen/size_none"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/characterTitle"
+                tools:text="@{viewModel.created}" />
+
+            <com.example.rickandmortyapicatalog.ui.components.CustomTextView
+                android:id="@+id/characterStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_none"
+                android:layout_marginStart="@dimen/spacing_tiny"
+                app:layout_constraintBottom_toBottomOf="@+id/characterCreated"
+                app:layout_constraintStart_toEndOf="@+id/characterCreated"
+                app:layout_constraintTop_toTopOf="@+id/characterCreated"
+                app:layout_constraintVertical_bias="0.0"
+                app:setInformation="@{viewModel.status}" />
+
+            <TextView
+                android:id="@+id/characterGender"
+                android:layout_width="@dimen/size_none"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_tiny"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/characterStatus"
+                app:layout_constraintStart_toEndOf="@+id/characterStatus"
+                app:layout_constraintTop_toTopOf="@+id/characterStatus"
+                tools:text="@{viewModel.gender}" />
+
+            <TextView
+                android:id="@+id/characterOrigin"
+                android:layout_width="@dimen/size_none"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_tiny"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/characterGender"
+                app:layout_constraintStart_toEndOf="@+id/characterGender"
+                app:layout_constraintTop_toTopOf="@+id/characterGender"
+                tools:text="@{viewModel.origin}" />
+
+            <com.example.rickandmortyapicatalog.ui.components.CustomImageGalery
+                android:id="@+id/characterIDetailCardOne"
+                android:layout_width="@dimen/custom_image_width"
+                android:layout_height="@dimen/custom_image_height"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/spacing_standard"
+                android:elevation="@dimen/spacing_tiny"
+                app:cardCornerRadius="@dimen/spacing_tiny"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/characterStatus"
+                app:setImage="@{viewModel.image}" />
+
+            <com.example.rickandmortyapicatalog.ui.components.CustomImageGalery
+                android:id="@+id/characterIDetailCardTwo"
+                android:layout_width="@dimen/custom_image_width"
+                android:layout_height="@dimen/custom_image_height"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/spacing_standard"
+                android:elevation="@dimen/spacing_tiny"
+                app:cardCornerRadius="@dimen/spacing_tiny"
+                app:layout_constraintStart_toEndOf="@+id/characterIDetailCardOne"
+                app:layout_constraintTop_toBottomOf="@+id/characterStatus"
+                app:setImage="@{viewModel.image}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

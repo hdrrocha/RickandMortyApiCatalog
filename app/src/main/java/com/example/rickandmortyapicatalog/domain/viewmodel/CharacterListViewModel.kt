@@ -1,10 +1,7 @@
 package com.example.rickandmortyapicatalog.domain.viewmodel
 
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.rickandmortyapicatalog.domain.uimodel.CharacterInfoUi
@@ -20,11 +17,13 @@ class CharacterListViewModel(
     val data get() = mutableData as LiveData<PagingData<CharacterInfoUi>>
 
     val error = MutableLiveData<Boolean>()
-    val loading = MutableLiveData<Boolean>()
+
+    val loading = Transformations.map(mutableData) {
+        it != null
+    }
 
     fun loadData() = viewModelScope.launch {
         try {
-            loading.value = true
             if (mutableData.value != null) return@launch
             useCase.fetchCharacter().cachedIn(viewModelScope).collect {
                 mutableData.value = it
@@ -32,9 +31,6 @@ class CharacterListViewModel(
             }
         } catch (e: Exception) {
             error.value = true
-            loading.value = false
-        } finally {
-            loading.value = false
         }
     }
 }
