@@ -49,7 +49,7 @@ class RickAndMortyApiTest : BaseUnitTest() {
 
 
     @Test(expected = HttpException::class)
-    fun getScoreErrorTest() {
+    fun fetchCharacterErrorTest() {
         runBlocking {
             mockNetworkResponseWithFileContent(
                 "response200.json",
