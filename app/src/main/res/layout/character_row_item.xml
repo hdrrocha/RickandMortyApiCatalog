@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:foreground="?android:selectableItemBackground">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.rickandmortyapicatalog.domain.uimodel.CharacterInfoUi" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="@dimen/card_width"
+        android:layout_height="@dimen/card_height"
+        android:layout_margin="@dimen/card_margin"
+        app:cardCornerRadius="@dimen/radius_large"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardPreventCornerOverlap="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/primaryLightColor">
+
+            <ImageView
+                android:id="@+id/characterItemImage"
+                android:layout_width="@dimen/size_none"
+                android:layout_height="@dimen/size_none"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/characterItemTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
+
+
+            <ProgressBar
+                android:id="@+id/progress_circular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/characterItemTitle"
+                app:layout_constraintEnd_toEndOf="@+id/characterItemImage"
+                app:layout_constraintStart_toStartOf="@+id/characterItemImage"
+                app:layout_constraintTop_toTopOf="@+id/characterItemImage"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/characterItemTitle"
+                android:layout_width="@dimen/size_none"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_micro"
+                android:layout_marginEnd="@dimen/spacing_micro"
+                android:layout_marginBottom="@dimen/spacing_micro"
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/characterItemImage"
+                app:layout_constraintStart_toStartOf="@+id/characterItemImage"
+                tools:text="Character" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
